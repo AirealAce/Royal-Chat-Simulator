@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 export async function POST(request: Request) {
   try {
-    const { text, voice_id } = await request.json();
+    const { text, voice_id, model_id, voice_settings } = await request.json();
 
     // Check if API key exists
     if (!process.env.ELEVENLABS_API_KEY) {
@@ -23,9 +23,12 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
           text,
-          voice_settings: {
-            stability: 0.7,
-            similarity_boost: 0.8,
+          model_id: model_id || 'eleven_multilingual_v2',
+          voice_settings: voice_settings || {
+            stability: 0.5,
+            similarity_boost: 0.75,
+            style: 0.0,
+            use_speaker_boost: true
           },
         }),
       }

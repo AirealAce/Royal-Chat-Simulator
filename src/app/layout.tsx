@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ChatGPT Clone',
-  description: 'A ChatGPT clone built with Next.js and OpenAI',
+  title: 'Mizuru Translate',
+  description: 'A modern translation app powered by AI',
 };
 
 export default function RootLayout({
